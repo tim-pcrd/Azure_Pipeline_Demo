@@ -1,4 +1,6 @@
 using Azure_Pipeline_Demo.Model;
+using Azure_Pipeline_Demo.Model.DAL.Contract;
+using Azure_Pipeline_Demo.Model.DAL.Implementation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,8 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddDbContext<BookDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IBookRepo, BookRepo>();
 
 var app = builder.Build();
 
