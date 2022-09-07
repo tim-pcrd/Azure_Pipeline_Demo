@@ -25,7 +25,7 @@ public class BooksController : ControllerBase
         }
         catch(Exception ex)
         {
-            return StatusCode(500);
+            return BadRequest(ex.StackTrace);
         }
     }
 
