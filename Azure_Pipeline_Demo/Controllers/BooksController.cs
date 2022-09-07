@@ -23,7 +23,7 @@ public class BooksController : ControllerBase
         {
             return await bookRepo.GetBooks();
         }
-        catch
+        catch(Exception ex)
         {
             return StatusCode(500);
         }
